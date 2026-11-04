@@ -1,0 +1,36 @@
+{
+  "recordedAtUtc": "2026-11-04T01:25:25.221Z",
+  "network": "mainnet",
+  "relayer": "https://relayer.memory.walrus.xyz",
+  "namespace": "split-memory",
+  "demo": {
+    "remember": {
+      "ok": true,
+      "job_id": "2fa2ccd6-b8bd-4c73-ad68-7ce45e88b1ea",
+      "blob_id": "HUC2423Dfc2eTswviptwWi6Sq-UAzgeb9ALm_5ji8gk",
+      "id": "2fa2ccd6-b8bd-4c73-ad68-7ce45e88b1ea",
+      "text_preview": "Split group 'Demo Night': Pat owes Quinn 18.75 USD for pizza on 2026-11-04. Prefer settle-later under 25 USD."
+    },
+    "recall": {
+      "ok": true,
+      "query": "Who owes whom for pizza or dinner?",
+      "total": 5,
+      "top_blob_ids": [
+        "HUC2423Dfc2eTswviptwWi6Sq-UAzgeb9ALm_5ji8gk",
+        "34t5bukAOedfLMYTqRULd9VmPJt0BSgfGx4BxkEg8JQ",
+        "QDkBb31UFUzVeMVI6nTRF7Kbldan6lCC_ajmSeUD59Q",
+        "9YOk4Lo0nb09L1K5wGBu71CuML30_iIgZD-H6mIXLxI",
+        "z3xFm_DA23h4dUWlnSpnbA4fzCvxDwxk51jQxzJ4YVI"
+      ],
+      "top_distances": [
+        0.4840291441331086,
+        0.6176452076913526,
+        0.65437058795856,
+        0.6567331403873802,
+        0.7051086286357378
+      ],
+      "top_hit_includes_new_remember": true
+    }
+  },
+  "notes": "No secrets in this file. Demo via bun run demo API."
+}

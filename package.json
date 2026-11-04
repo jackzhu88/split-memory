@@ -1,0 +1,24 @@
+{
+  "name": "total-recall-split",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Consumer Finance split-bill memory for Tatum Total Recall (Walrus Memory + Tatum readonly)",
+  "scripts": {
+    "health": "bun run src/health.ts",
+    "seed": "bun run src/seed-memories.ts",
+    "recall": "bun run src/recall-demo.ts",
+    "tatum": "bun run src/tatum-readonly.ts",
+    "demo": "bun run src/demo-server.ts"
+  },
+  "dependencies": {
+    "@mysten-incubation/memwal": "^0.1.12"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  }
+}

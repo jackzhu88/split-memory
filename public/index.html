@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Split Memory — Total Recall Demo</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <main class="shell">
+    <header class="hero">
+      <div class="badge">Consumer Finance · Walrus Memory + Tatum</div>
+      <h1>Split Memory</h1>
+      <p class="lede">
+        Remember who owes whom, shared budgets, and learned spend limits.
+        Blockchain stays invisible — durable memory does the work.
+      </p>
+      <div class="meta" id="statusBar">Checking relayer…</div>
+    </header>
+
+    <section class="grid">
+      <article class="card" id="rememberCard">
+        <h2>1 · Remember a split fact</h2>
+        <p class="hint">Writes to mainnet via the hosted MemWal relayer (namespace <code>split-memory</code>).</p>
+        <textarea id="rememberText" rows="4" placeholder="e.g. Split group 'Demo Night': Pat owes Quinn 18.75 USD for pizza on 2026-11-04."></textarea>
+        <div class="row">
+          <button id="rememberBtn" class="primary">Remember on mainnet</button>
+          <button id="fillSampleBtn" class="ghost" type="button">Fill sample</button>
+        </div>
+        <pre class="out" id="rememberOut">Waiting for a write…</pre>
+      </article>
+
+      <article class="card" id="recallCard">
+        <h2>2 · Semantic recall</h2>
+        <p class="hint">Ask in natural language. Hits come from stored mainnet memories.</p>
+        <input id="recallQuery" type="text" placeholder="Who owes whom for dinner or cabin?" />
+        <div class="row wrap" id="exampleButtons"></div>
+        <div class="row">
+          <button id="recallBtn" class="primary">Recall</button>
+        </div>
+        <div class="hits" id="recallOut"><p class="muted">No recall yet.</p></div>
+      </article>
+    </section>
+
+    <section class="card wide">
+      <h2>Tatum readonly (Sui GraphQL)</h2>
+      <p class="hint">Live chain hint only — no writes, no fake data. API key never leaves the server.</p>
+      <div class="row">
+        <button id="tatumBtn" class="ghost">Fetch checkpoint / balance</button>
+      </div>
+      <pre class="out" id="tatumOut">Not fetched yet.</pre>
+    </section>
+
+    <footer class="foot">
+      <span>Built by <strong>jackzhu88</strong> · Telegram <strong>@jackzhu8888</strong></span>
+      <span class="sep">·</span>
+      <span>Local demo — secrets stay server-side</span>
+    </footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

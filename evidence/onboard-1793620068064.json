@@ -1,0 +1,26 @@
+{
+  "createdAt": "2026-11-02T11:47:42.485Z",
+  "network": "mainnet",
+  "owner": "0xdb67575062bc2e6d5c3f533eb72d7966abded13bb988c3aab6fa10b827f864e4",
+  "packageId": "0xe7c16fbea0560e7057e2bf7422feaa4fb313749fc69c9e9092fac7a33b81d7f5",
+  "registryId": "0x8bf82c9e09e36b8d1c38298f68b7cb68e7b8762887e7592add9986d5e9cf199f",
+  "createAccountDigest": "H6q3anNiofrFNNTi7Vy5DZrtGxyQy7HThgjCDiCwsbXg",
+  "createAccountStatus": {
+    "success": true,
+    "error": null
+  },
+  "createAccountGas": {
+    "computationCost": "100000",
+    "storageCost": "6133200",
+    "storageRebate": "2234177",
+    "nonRefundableStorageFee": "223"
+  },
+  "accountId": "0x5d8b1683b2f8edf71920d979d2f31ba842d90a51495a045269dd512d7f102a48",
+  "addDelegateDigest": "57rgkojJ8wbt7TP2FCRw5yFrxKMkBdQ6hZAruax2tAvz",
+  "addDelegateStatus": {
+    "success": true,
+    "error": null
+  },
+  "delegateAddress": "0x61c2b24a272e902980d622b08f4879b623d4af5766ccdfffb7a3f03206557a2b",
+  "balanceAfterMist": "0"
+}

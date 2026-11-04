@@ -1,0 +1,83 @@
+{
+  "network": "mainnet",
+  "relayer": "https://relayer.memory.walrus.xyz",
+  "namespace": "split-memory",
+  "owner": "0xdb67575062bc2e6d5c3f533eb72d7966abded13bb988c3aab6fa10b827f864e4",
+  "accountId": "0x5d8b1683b2f8edf71920d979d2f31ba842d90a51495a045269dd512d7f102a48",
+  "agentId_delegateAddress": "0x61c2b24a272e902980d622b08f4879b623d4af5766ccdfffb7a3f03206557a2b",
+  "createAccountDigest": "H6q3anNiofrFNNTi7Vy5DZrtGxyQy7HThgjCDiCwsbXg",
+  "addDelegateDigest": "57rgkojJ8wbt7TP2FCRw5yFrxKMkBdQ6hZAruax2tAvz",
+  "memories": [
+    {
+      "n": 1,
+      "job_id": "bf44862b-1adf-4136-ad7b-342476a6b544",
+      "blob_id": "QDkBb31UFUzVeMVI6nTRF7Kbldan6lCC_ajmSeUD59Q"
+    },
+    {
+      "n": 2,
+      "job_id": "705ae853-cffc-4db0-ba90-bfe810079d83",
+      "blob_id": "ijJ-GVCVIKFX13xDg-5Ni202nquLlEUETyvPqHvSUzs"
+    },
+    {
+      "n": 3,
+      "job_id": "f7379fc5-8677-4e5d-a098-3e2876e3972d",
+      "blob_id": "u7OfNr8GCOVZxQLqY-ovm-CpSTbxV-9EPeyg-6kHuQ4"
+    },
+    {
+      "n": 4,
+      "job_id": "7de94f05-94c2-4a79-a975-ae33c601501b",
+      "blob_id": "wHNiT6vo0-4fmc-gwxlrUyd6KwIFH3l61d5WJ3VD8Lk"
+    },
+    {
+      "n": 5,
+      "job_id": "59ba65a5-8d0f-485e-895a-7df790d37643",
+      "blob_id": "1ByvZ8dRjigLoh2UqHl4s0osgfY1lHKcmnHIYD-Aono"
+    },
+    {
+      "n": 6,
+      "job_id": "f2dd9236-2749-4e4e-af5a-19b01fa8f3da",
+      "blob_id": "34t5bukAOedfLMYTqRULd9VmPJt0BSgfGx4BxkEg8JQ"
+    },
+    {
+      "n": 7,
+      "job_id": "1c71a4c6-f48f-41ce-87df-5c32f0acba0d",
+      "blob_id": "5U9-fWG5jyXGFpqo-7tRLUPt1-hcWIVJYln-hD3m8Fc"
+    },
+    {
+      "n": 8,
+      "job_id": "15c9cc98-9c28-4a62-bc49-9e2aa1af1b0c",
+      "blob_id": "PWeY4un8Cwc5QpGgyvM79nzyWIHusCgKB43Hfvmgk2U"
+    },
+    {
+      "n": 9,
+      "job_id": "49013eff-2ab9-412b-9062-9806b9d3522c",
+      "blob_id": "X2l2njqf9mSFASIYHDMDeXkgtJaVVZCVECyjTJq1TEU"
+    },
+    {
+      "n": 10,
+      "job_id": "e49d663b-87fe-42f4-aa5e-e2694867d12b",
+      "blob_id": "h4EaVUUlZbHL6wyXOemNfS5Bxx9XdPi6bAfJe-0LP8k"
+    },
+    {
+      "n": 11,
+      "job_id": "5e83767f-2d42-4e0c-afa1-d6f92d051f3d",
+      "blob_id": "koACK8La07Bk-mE7LANIism44AOVhvh3YNgZ5zfaZ0I"
+    },
+    {
+      "n": 12,
+      "job_id": "4c499b7b-fe98-4fd7-aacc-bcdc5dd3341b",
+      "blob_id": "9YOk4Lo0nb09L1K5wGBu71CuML30_iIgZD-H6mIXLxI"
+    },
+    {
+      "n": 13,
+      "job_id": "3846861a-c318-4910-8a44-57654d8daa00",
+      "blob_id": "QN1jklQKSyFVV2pQAduPCFq7IM2-d1Oe9dXTqwfQf3M"
+    },
+    {
+      "n": 14,
+      "job_id": "6ec3b9b8-2020-4f1d-a9e5-95884ce0a5d1",
+      "blob_id": "z3xFm_DA23h4dUWlnSpnbA4fzCvxDwxk51jQxzJ4YVI"
+    }
+  ],
+  "success": 14
+}

@@ -1,0 +1,42 @@
+# Secrets and local env — never commit
+secrets/*
+!secrets/README.md
+.env
+.env.*
+!.env.example
+
+# Key material / wallets
+**/sui-wallet.json
+**/*wallet*.json
+**/mnemonic*
+**/mnemonic.*
+**/*.pem
+**/*.key
+**/*private*key*
+**/*-secret*
+**/*.p12
+**/*.pfx
+
+# Dependencies & build
+node_modules/
+dist/
+.turbo/
+.cache/
+coverage/
+
+# Logs & OS
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# Local demo overrides
+public/local/
+
+# Internal handoff notes (not for public remote)
+HANDOFF*.md

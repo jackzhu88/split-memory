@@ -1,0 +1,169 @@
+:root {
+  --bg0: #070b14;
+  --bg1: #10182a;
+  --card: rgba(18, 26, 44, 0.88);
+  --line: rgba(140, 170, 255, 0.18);
+  --text: #e8eefc;
+  --muted: #93a0bf;
+  --accent: #6ea8ff;
+  --accent2: #7dffa8;
+  --warn: #ffb86b;
+  --danger: #ff7b8a;
+  --radius: 18px;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  font-family: "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: var(--bg0); color: var(--text); }
+body { position: relative; }
+
+.bg {
+  position: fixed; inset: 0; z-index: -1;
+  background:
+    radial-gradient(900px 500px at 15% -10%, rgba(90, 140, 255, 0.28), transparent 60%),
+    radial-gradient(700px 420px at 90% 10%, rgba(90, 255, 180, 0.12), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+}
+
+.shell {
+  width: min(1080px, calc(100% - 2rem));
+  margin: 2rem auto 3rem;
+}
+
+.hero { margin-bottom: 1.5rem; }
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(110, 168, 255, 0.08);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+h1 {
+  margin: 0.7rem 0 0.4rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: -0.03em;
+}
+.lede { color: var(--muted); max-width: 46rem; line-height: 1.55; margin: 0; }
+.meta {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+}
+.meta.ok { color: var(--accent2); border-color: rgba(125, 255, 168, 0.35); }
+.meta.bad { color: var(--danger); border-color: rgba(255, 123, 138, 0.35); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.15rem 1.2rem 1.25rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+.card.wide { margin-top: 1rem; }
+.card h2 { margin: 0 0 0.35rem; font-size: 1.15rem; }
+.hint { color: var(--muted); font-size: 0.9rem; margin: 0 0 0.9rem; line-height: 1.45; }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  color: var(--accent);
+}
+
+textarea, input[type="text"] {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(0,0,0,0.28);
+  color: var(--text);
+  padding: 0.8rem 0.9rem;
+  font: inherit;
+  resize: vertical;
+}
+textarea:focus, input[type="text"]:focus {
+  outline: 2px solid rgba(110, 168, 255, 0.45);
+  border-color: transparent;
+}
+input[type="text"] { margin-bottom: 0.65rem; }
+
+.row { display: flex; gap: 0.6rem; align-items: center; margin-top: 0.75rem; }
+.row.wrap { flex-wrap: wrap; margin-top: 0; margin-bottom: 0.35rem; }
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.65rem 1.05rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+button:hover { transform: translateY(-1px); }
+button:disabled { opacity: 0.55; cursor: wait; transform: none; }
+button.primary {
+  background: linear-gradient(135deg, #6ea8ff, #8d7bff);
+  color: #081018;
+}
+button.ghost {
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+button.chip {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.out {
+  margin: 0.9rem 0 0;
+  padding: 0.85rem 0.95rem;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.32);
+  border: 1px solid var(--line);
+  color: #c9d6f5;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 4.5rem;
+}
+
+.hits { margin-top: 0.9rem; display: grid; gap: 0.65rem; }
+.hit {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.75rem 0.85rem;
+  background: rgba(0,0,0,0.22);
+}
+.hit .top {
+  display: flex; justify-content: space-between; gap: 0.75rem;
+  color: var(--muted); font-size: 0.78rem; margin-bottom: 0.35rem;
+}
+.hit .text { line-height: 1.45; font-size: 0.92rem; }
+.muted { color: var(--muted); }
+
+.foot {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;
+}
+.foot .sep { opacity: 0.5; }
