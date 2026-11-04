@@ -7,6 +7,9 @@ README, screenshots, chat logs, or evidence files.
 
 Also keep wallet files such as `sui-wallet.json` here only. They are gitignored.
 
+On a public host (e.g. Vercel), set the same variable **names** as project
+environment variables. Never put values in the frontend bundle.
+
 ## Required for MemWal (mainnet remember / recall)
 
 | Variable | What it is |
@@ -34,6 +37,7 @@ Relayer is hardcoded to the hosted mainnet URL in code:
 | Variable | What it is |
 | --- | --- |
 | `SUI_ADDRESS` | Sui address for identity / readonly balance hint |
+| `HOST` / `PORT` | HTTP bind (containers: `HOST=0.0.0.0`) |
 
 ## Quick start
 
@@ -45,5 +49,7 @@ bun run seed
 bun run recall
 bun run demo
 ```
+
+`src/onboard-sponsored.ts` writes wallet material into this folder. Local onboarding only — never run on a public host, never commit the outputs.
 
 Never share `secrets/.env` or wallet JSON outside this machine.

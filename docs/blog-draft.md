@@ -3,7 +3,7 @@
 **Author:** jackzhu88  
 **Contact:** Telegram @jackzhu8888  
 **Track:** Consumer Finance (Tatum × Walrus Total Recall)  
-**Status:** draft — not published yet
+**Status:** repo documentation — mirrored in the public README (not published on a separate blog or social channel)
 
 ---
 
@@ -26,7 +26,8 @@ Typical facts:
 
 We use the hosted MemWal relayer (`https://relayer.memory.walrus.xyz`) with the official SDK `@mysten-incubation/memwal`.
 
-- **`remember(text)`** accepts a split-bill fact, returns a `job_id`, then we `waitForRememberJob` until a `blob_id` is available on mainnet.
+- **`remember(text)`** accepts a split-bill fact and returns a `job_id` immediately.
+- The demo UI (and any host with short function timeouts) polls **`getRememberStatus(job_id)`** until a `blob_id` is available on mainnet — no single request waits minutes on the server.
 - **`recall({ query, limit, namespace })`** runs semantic search over the stored memories and returns ranked hits with distances.
 
 Hosted relayer sponsorship has let us write mainnet memories without holding a funded hot wallet for every demo write. Secrets (delegate key, account id) stay on the server — never in the browser bundle, never in the public repo.
@@ -57,13 +58,13 @@ Over time the assistant’s answers shift because the memory set shifted — tha
 ## Architecture (short)
 
 ```
-Browser UI  →  local Bun demo server  →  MemWal hosted relayer (remember / recall)
-                                   ↘  Tatum Sui GraphQL (readonly checkpoint / balance)
+Browser UI  →  Bun demo server  →  MemWal hosted relayer (remember / recall)
+                               ↘  Tatum Sui GraphQL (readonly checkpoint / balance)
 ```
 
-- Runtime: Bun
+- Runtime: Bun (`src/server.ts`; Vercel `bunVersion: "1.x"`)
 - Namespace: `split-memory`
-- Secrets: local `secrets/.env` only (gitignored)
+- Secrets: local `secrets/.env` or host env vars only (gitignored / never in the frontend)
 - Out of scope for this MVP: prediction track, AI Builder shell, self-hosted relayer, Move contracts, x402 payments
 
 ## Try it locally

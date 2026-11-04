@@ -11,6 +11,9 @@ const exampleButtons = $("exampleButtons");
 const SAMPLE =
   "Split group 'Demo Night': Pat owes Quinn 18.75 USD for pizza on 2026-11-04. Prefer settle-later under 25 USD.";
 
+const POLL_MS = 1500;
+const POLL_MAX_MS = 120_000;
+
 async function getJson(url, options) {
   const res = await fetch(url, options);
   const data = await res.json().catch(() => ({}));
@@ -27,6 +30,10 @@ function setBusy(btn, busy, label) {
   btn.disabled = busy;
   if (label) btn.dataset.label ??= btn.textContent;
   btn.textContent = busy ? "Working…" : btn.dataset.label || label || btn.textContent;
+}
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
 }
 
 async function refreshHealth() {
@@ -66,6 +73,36 @@ $("fillSampleBtn").addEventListener("click", () => {
   rememberText.value = SAMPLE;
 });
 
+async function pollRememberJob(jobId, textPreview) {
+  const started = Date.now();
+  while (Date.now() - started < POLL_MAX_MS) {
+    const data = await getJson(
+      `/api/remember/job?id=${encodeURIComponent(jobId)}`,
+    );
+    rememberOut.textContent = JSON.stringify(
+      {
+        ok: true,
+        job_id: data.job_id,
+        status: data.status,
+        blob_id: data.blob_id,
+        id: data.id,
+        namespace: data.namespace,
+        text_preview: textPreview,
+        elapsed_ms: Date.now() - started,
+      },
+      null,
+      2,
+    );
+    if (data.done || data.status === "done") {
+      return data;
+    }
+    await sleep(POLL_MS);
+  }
+  const err = new Error(`remember job timed out after ${POLL_MAX_MS}ms (job still pending on relayer)`);
+  err.payload = { job_id: jobId };
+  throw err;
+}
+
 $("rememberBtn").addEventListener("click", async () => {
   const btn = $("rememberBtn");
   const text = rememberText.value.trim();
@@ -76,7 +113,7 @@ $("rememberBtn").addEventListener("click", async () => {
   setBusy(btn, true);
   rememberOut.textContent = "Submitting remember job to mainnet…";
   try {
-    const data = await getJson("/api/remember", {
+    const accepted = await getJson("/api/remember", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ text }),
@@ -84,15 +121,17 @@ $("rememberBtn").addEventListener("click", async () => {
     rememberOut.textContent = JSON.stringify(
       {
         ok: true,
-        job_id: data.job_id,
-        blob_id: data.blob_id,
-        id: data.id,
-        namespace: data.namespace,
-        text_preview: data.text_preview,
+        phase: "accepted",
+        job_id: accepted.job_id,
+        status: accepted.status,
+        namespace: accepted.namespace,
+        text_preview: accepted.text_preview,
+        poll: accepted.poll,
       },
       null,
       2,
     );
+    await pollRememberJob(accepted.job_id, accepted.text_preview);
   } catch (err) {
     const extra = err.payload?.needs_gas_or_payment
       ? "\n\nSTOP: hosted write appears to need gas/payment. Do not top up without approval."

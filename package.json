@@ -9,7 +9,7 @@
     "seed": "bun run src/seed-memories.ts",
     "recall": "bun run src/recall-demo.ts",
     "tatum": "bun run src/tatum-readonly.ts",
-    "demo": "bun run src/demo-server.ts"
+    "demo": "bun run src/server.ts"
   },
   "dependencies": {
     "@mysten-incubation/memwal": "^0.1.12"

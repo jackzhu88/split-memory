@@ -40,3 +40,6 @@ public/local/
 
 # Internal handoff notes (not for public remote)
 HANDOFF*.md
+
+# Vercel local link
+.vercel/
