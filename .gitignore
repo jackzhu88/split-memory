@@ -43,3 +43,13 @@ HANDOFF*.md
 
 # Vercel local link
 .vercel/
+media/
+
+# Local demo recordings (do not publish binaries by default)
+evidence/*.mp4
+*.mp4
+!screens/**/*.png
+
+# Local archive (abandoned submission)
+archive-20261104/
+evidence/memwal-dashboard/
